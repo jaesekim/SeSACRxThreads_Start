@@ -7,6 +7,8 @@
  
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class BirthdayViewController: UIViewController {
     
@@ -22,7 +24,6 @@ class BirthdayViewController: UIViewController {
     let infoLabel: UILabel = {
        let label = UILabel()
         label.textColor = Color.black
-        label.text = "만 17세 이상만 가입 가능합니다."
         return label
     }()
     
@@ -36,7 +37,6 @@ class BirthdayViewController: UIViewController {
     
     let yearLabel: UILabel = {
        let label = UILabel()
-        label.text = "2023년"
         label.textColor = Color.black
         label.snp.makeConstraints {
             $0.width.equalTo(100)
@@ -46,7 +46,6 @@ class BirthdayViewController: UIViewController {
     
     let monthLabel: UILabel = {
        let label = UILabel()
-        label.text = "33월"
         label.textColor = Color.black
         label.snp.makeConstraints {
             $0.width.equalTo(100)
@@ -56,7 +55,6 @@ class BirthdayViewController: UIViewController {
     
     let dayLabel: UILabel = {
        let label = UILabel()
-        label.text = "99일"
         label.textColor = Color.black
         label.snp.makeConstraints {
             $0.width.equalTo(100)
@@ -66,18 +64,77 @@ class BirthdayViewController: UIViewController {
   
     let nextButton = PointButton(title: "가입하기")
     
+    let validText = BehaviorSubject(value: "만 17세 이상만 가입가능합니다.")
+    
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = Color.white
         
         configureLayout()
-        
-        nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
+        bind()
     }
     
     @objc func nextButtonClicked() {
         print("가입완료")
+    }
+    
+    func bind() {
+        
+        validText
+            .bind(to: infoLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        let validation = birthDayPicker
+            .rx
+            .date
+            .map { date in
+                
+                let component = Calendar.current.dateComponents(
+                    [.year],
+                    from: date,
+                    to: Date()
+                )
+                
+                if let age = component.year {
+                    if age >= 17 {
+                        return true
+                    }
+                }
+                return false
+            }
+        
+        // validation: infoLabel 변경
+        validation
+            .bind(with: self) { owner, bool in
+                let color: UIColor = bool ? .systemBlue : .systemRed
+                owner.infoLabel.textColor = color
+                owner.validText.onNext(
+                    bool ? "가입 가능한 나이입니다" :
+                        "만 17세 이상만 가입가능합니다"
+                )
+            }
+            .disposed(by: disposeBag)
+        
+        // validation: nextButton 변경
+        validation
+            .bind(with: self) { owner, bool in
+                let color: UIColor = bool ? .systemBlue : .lightGray
+                owner.nextButton.backgroundColor = color
+                owner.nextButton.isEnabled = bool
+            }
+            .disposed(by: disposeBag)
+
+        nextButton.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(
+                    SampleViewController(),
+                    animated: true
+                )
+            }
+            .disposed(by: disposeBag)
     }
 
     
