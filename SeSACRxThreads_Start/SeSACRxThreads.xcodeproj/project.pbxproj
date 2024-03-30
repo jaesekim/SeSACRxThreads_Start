@@ -29,6 +29,9 @@
 		041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280722AEFAD4B00972552 /* NicknameViewController.swift */; };
 		041280782AF1D14000972552 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280772AF1D14000972552 /* Resource.swift */; };
 		7BE31AA02BB7001C00D1EDE6 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31A9F2BB7001C00D1EDE6 /* SampleViewController.swift */; };
+		7BE31AA32BB8406D00D1EDE6 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31AA22BB8406D00D1EDE6 /* SampleView.swift */; };
+		7BE31AA62BB850A000D1EDE6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31AA52BB850A000D1EDE6 /* UserModel.swift */; };
+		7BE31AA82BB8516F00D1EDE6 /* SampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31AA72BB8516F00D1EDE6 /* SampleCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		041280722AEFAD4B00972552 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		041280772AF1D14000972552 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		7BE31A9F2BB7001C00D1EDE6 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		7BE31AA22BB8406D00D1EDE6 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
+		7BE31AA52BB850A000D1EDE6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		7BE31AA72BB8516F00D1EDE6 /* SampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,8 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				7BE31AA42BB8509400D1EDE6 /* Model */,
+				7BE31AA12BB8405A00D1EDE6 /* Sample */,
 				041280532AEF9C1F00972552 /* SignUp */,
 				041280542AEF9C2600972552 /* SignIn */,
 				0412806D2AEFAD0F00972552 /* SignUpOptional */,
@@ -136,7 +144,6 @@
 				0412802E2AEF9BAC00972552 /* LaunchScreen.storyboard */,
 				041280312AEF9BAC00972552 /* Info.plist */,
 				041280772AF1D14000972552 /* Resource.swift */,
-				7BE31A9F2BB7001C00D1EDE6 /* SampleViewController.swift */,
 			);
 			path = SeSACRxThreads;
 			sourceTree = "<group>";
@@ -193,6 +200,24 @@
 				041280722AEFAD4B00972552 /* NicknameViewController.swift */,
 			);
 			path = SignUpOptional;
+			sourceTree = "<group>";
+		};
+		7BE31AA12BB8405A00D1EDE6 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				7BE31A9F2BB7001C00D1EDE6 /* SampleViewController.swift */,
+				7BE31AA22BB8406D00D1EDE6 /* SampleView.swift */,
+				7BE31AA72BB8516F00D1EDE6 /* SampleCollectionViewCell.swift */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		7BE31AA42BB8509400D1EDE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BE31AA52BB850A000D1EDE6 /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,9 +366,12 @@
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				7BE31AA02BB7001C00D1EDE6 /* SampleViewController.swift in Sources */,
+				7BE31AA82BB8516F00D1EDE6 /* SampleCollectionViewCell.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
+				7BE31AA62BB850A000D1EDE6 /* UserModel.swift in Sources */,
+				7BE31AA32BB8406D00D1EDE6 /* SampleView.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
