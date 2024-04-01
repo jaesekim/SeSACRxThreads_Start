@@ -1,4 +1,5 @@
 {
+  "originHash" : "18c79d003cdae4d98e28642014f032ada7b768d43ad8c0937a13e1dfe13fe186",
   "pins" : [
     {
       "identity" : "rxswift",
@@ -17,7 +18,16 @@
         "revision" : "f222cbdf325885926566172f6f5f06af95473158",
         "version" : "5.6.0"
       }
+    },
+    {
+      "identity" : "toast-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scalessec/Toast-Swift.git",
+      "state" : {
+        "revision" : "404ac98e0080a3d9f0630e007838284e04528bcd",
+        "version" : "5.1.0"
+      }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

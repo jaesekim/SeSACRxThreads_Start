@@ -21,6 +21,9 @@ final class SampleView: UIView {
         let view = UIButton()
         view.setTitle("추가", for: .normal)
         view.setTitleColor(.systemBlue, for: .normal)
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.systemBlue.cgColor
+        view.layer.cornerRadius = 8
         return view
     }()
     
@@ -28,6 +31,18 @@ final class SampleView: UIView {
         let view = UICollectionView(
             frame: .zero,
             collectionViewLayout: createCollectionViewLayout()
+        )
+        return view
+    }()
+    
+    lazy var tableView = {
+        let view = UITableView(
+            frame: .zero,
+            style: .insetGrouped
+        )
+        view.register(
+            UITableViewCell.self,
+            forCellReuseIdentifier: "SampleViewCell"
         )
         return view
     }()
@@ -44,7 +59,8 @@ final class SampleView: UIView {
         [
             textField,
             addButton,
-            collectionView,
+            // collectionView,
+            tableView,
         ].forEach { addSubview($0) }
     }
     
@@ -62,7 +78,12 @@ final class SampleView: UIView {
             make.leading.equalTo(textField.snp.trailing).offset(20)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-20)
         }
-        collectionView.snp.makeConstraints { make in
+//        collectionView.snp.makeConstraints { make in
+//            make.top.equalTo(textField.snp.bottom).offset(12)
+//            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
+//            make.bottom.equalTo(safeAreaLayoutGuide)
+//        }
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(textField.snp.bottom).offset(12)
             make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
             make.bottom.equalTo(safeAreaLayoutGuide)

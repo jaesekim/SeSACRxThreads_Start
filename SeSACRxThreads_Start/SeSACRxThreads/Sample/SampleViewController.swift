@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Toast
 
 class SampleViewController: UIViewController {
     
@@ -23,6 +26,10 @@ class SampleViewController: UIViewController {
     
     var userList: [User] = [User(name: "jess"), User(name: "js")]
     
+    var userTableList = BehaviorSubject<[User]>(value: [])
+    
+    let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +40,52 @@ class SampleViewController: UIViewController {
     }
     
     private func bind() {
+
+        mainView.addButton.rx.tap
+            .bind(with: self) { owner, _ in
+
+                guard let name = owner.mainView.textField.text else { return }
+
+                if name.isEmpty {
+                    owner.view.makeToast("이름을 입력해 주세요")
+                } else {
+                    do {
+                        try owner.userTableList.onNext(
+                            owner.userTableList.value() + [User(name: name)]
+                        )
+                    } catch {
+                        print(error)
+                    }
+                    // textField 초기화
+                    owner.mainView.textField.text = ""
+                }
+            }
+            .disposed(by: disposeBag)
         
+        userTableList
+            .bind(to: mainView.tableView.rx.items) { (tableView, row, element) in
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "SampleViewCell"
+                )!
+                cell.textLabel?.text = element.name
+                
+                return cell
+            }
+            .disposed(by: disposeBag)
+        
+        mainView.tableView
+            .rx
+            .itemSelected
+            .bind(with: self) { owner, indexPath in
+                do {
+                    var users = try owner.userTableList.value()
+                    users.remove(at: indexPath.row)
+                    owner.userTableList.onNext(users)
+                } catch {
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     private func setDelegate() {
