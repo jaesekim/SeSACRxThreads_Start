@@ -33,6 +33,9 @@
 		7BE31AA62BB850A000D1EDE6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31AA52BB850A000D1EDE6 /* UserModel.swift */; };
 		7BE31AA82BB8516F00D1EDE6 /* SampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31AA72BB8516F00D1EDE6 /* SampleCollectionViewCell.swift */; };
 		7BE31AAC2BB86AB800D1EDE6 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE31AAB2BB86AB800D1EDE6 /* Toast */; };
+		7BE31ABB2BBBE89E00D1EDE6 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31AB92BBBE89E00D1EDE6 /* SearchTableViewCell.swift */; };
+		7BE31ABC2BBBE89E00D1EDE6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31ABA2BBBE89E00D1EDE6 /* SearchViewController.swift */; };
+		7BE31ABF2BBBFD3100D1EDE6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE31ABE2BBBFD3100D1EDE6 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		7BE31AA22BB8406D00D1EDE6 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		7BE31AA52BB850A000D1EDE6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		7BE31AA72BB8516F00D1EDE6 /* SampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionViewCell.swift; sourceTree = "<group>"; };
+		7BE31AB92BBBE89E00D1EDE6 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		7BE31ABA2BBBE89E00D1EDE6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7BE31ABE2BBBFD3100D1EDE6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,8 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				7BE31ABD2BBBFD1F00D1EDE6 /* ViewModel */,
+				7BE31AB42BBBE77100D1EDE6 /* Search */,
 				7BE31AA42BB8509400D1EDE6 /* Model */,
 				7BE31AA12BB8405A00D1EDE6 /* Sample */,
 				041280532AEF9C1F00972552 /* SignUp */,
@@ -220,6 +228,23 @@
 				7BE31AA52BB850A000D1EDE6 /* UserModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7BE31AB42BBBE77100D1EDE6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7BE31AB92BBBE89E00D1EDE6 /* SearchTableViewCell.swift */,
+				7BE31ABA2BBBE89E00D1EDE6 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7BE31ABD2BBBFD1F00D1EDE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7BE31ABE2BBBFD3100D1EDE6 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,11 +392,14 @@
 				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
+				7BE31ABC2BBBE89E00D1EDE6 /* SearchViewController.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
+				7BE31ABF2BBBFD3100D1EDE6 /* SearchViewModel.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				7BE31AA02BB7001C00D1EDE6 /* SampleViewController.swift in Sources */,
 				7BE31AA82BB8516F00D1EDE6 /* SampleCollectionViewCell.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
+				7BE31ABB2BBBE89E00D1EDE6 /* SearchTableViewCell.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				7BE31AA62BB850A000D1EDE6 /* UserModel.swift in Sources */,
@@ -553,6 +581,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J296P9NM3P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACRxThreads/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Week16;
@@ -583,6 +612,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J296P9NM3P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACRxThreads/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Week16;

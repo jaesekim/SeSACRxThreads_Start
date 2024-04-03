@@ -14,6 +14,7 @@ final class SampleView: UIView {
         let view = UITextField()
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.black.cgColor
+        view.layer.cornerRadius = 8
         return view
     }()
     
@@ -40,6 +41,7 @@ final class SampleView: UIView {
             frame: .zero,
             style: .insetGrouped
         )
+        view.backgroundColor = .systemGray5
         view.register(
             UITableViewCell.self,
             forCellReuseIdentifier: "SampleViewCell"

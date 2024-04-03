@@ -41,17 +41,19 @@ class SampleViewController: UIViewController {
     
     private func bind() {
 
+        Observable.zip(mainView.addButton.rx.tap, mainView.textField.rx.text)
+        let b = mainView.textField.rx.text
+        
         mainView.addButton.rx.tap
-            .bind(with: self) { owner, _ in
+            .withLatestFrom(mainView.textField.rx.text.orEmpty)
+            .bind(with: self) { owner, text in
 
-                guard let name = owner.mainView.textField.text else { return }
-
-                if name.isEmpty {
+                if text.isEmpty {
                     owner.view.makeToast("이름을 입력해 주세요")
                 } else {
                     do {
                         try owner.userTableList.onNext(
-                            owner.userTableList.value() + [User(name: name)]
+                            owner.userTableList.value() + [User(name: text)]
                         )
                     } catch {
                         print(error)

@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class SampleCollectionViewCell: UICollectionViewCell {
     
@@ -17,10 +19,12 @@ final class SampleCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    let disposeBag = DisposeBag()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .systemGray3
+        //backgroundColor = .systemGray3
         clipsToBounds = true
         layer.cornerRadius = 8
         
