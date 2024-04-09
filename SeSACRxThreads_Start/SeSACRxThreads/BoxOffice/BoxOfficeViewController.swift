@@ -21,8 +21,15 @@ class BoxOfficeViewController: UIViewController {
     let viewModel = BoxOfficeViewModel()
     
     func bind() {
-         
-        let a = searchBar.rx.searchButtonClicked
+
+        
+        let input = BoxOfficeViewModel.Input(
+            searchTap: searchBar.rx.searchButtonClicked,
+            searchedText: searchBar.rx.text, 
+            tableCellTap: tableView.rx.itemSelected
+        )
+        
+        let output = viewModel.transform(input: input)
         
         viewModel.movie
             .bind(
@@ -30,7 +37,7 @@ class BoxOfficeViewController: UIViewController {
                     cellIdentifier: SearchTableViewCell.identifier,
                     cellType: SearchTableViewCell.self)
             ) { (row, element, cell) in
-                cell.appNameLabel.text = element
+                cell.appNameLabel.text = element.movieNm
             }
             .disposed(by: disposeBag)
 
